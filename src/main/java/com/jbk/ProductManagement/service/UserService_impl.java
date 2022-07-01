@@ -32,4 +32,21 @@ public class UserService_impl implements UserService {
 		return users;
 	}
 
+	@Override
+	public boolean deleteUser(String username) {
+
+		return dao.deleteUser(username);
+	}
+
+	@Override
+	public User profile(String username) {
+		return dao.profile(username);
+	}
+
+	@Override
+	public boolean updateUser(User user) {
+
+		return dao.updateUser(user);
+	}
+
 }

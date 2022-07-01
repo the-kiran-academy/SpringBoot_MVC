@@ -1,5 +1,3 @@
-
-
 <jsp:include page="menu.jsp" />
 <html>
 <head>
@@ -14,11 +12,11 @@
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/css/reg.css">
 
-<title>Add User</title>
+<title>Profile</title>
 </head>
 <body>
 <h4 style="color:red">${msg}</h4>
-<form action="addUser" method="post" onsubmit="" name="myForm">
+<form action="updateUser" method="post"  name="myForm">
 	<div class="container register">
 		<div class="row">
 			<div class="col-md-3 register-left">
@@ -32,16 +30,16 @@
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="home" role="tabpanel"
 						aria-labelledby="home-tab">
-						<h3 class="register-heading">ADD USER</h3>
+						<h3 class="register-heading">PROFILE</h3>
 						<div class="row register-form">
 							<div class="col-md-6">
 								<div class="form-group">
 									<input type="text" class="form-control"
-										placeholder="USERNAME *" value="" name="username"  required="required"/>
+										placeholder="USERNAME *" value="${user.username}" name="username"  required="required" readonly="readonly"/>
 								</div>
 								<div class="form-group">
 									<input type="text" class="form-control"
-										placeholder="PASSWORD  *" value="" name="password" />
+										placeholder="PASSWORD *" value="${user.password}" name="password" required="required"/>
 								</div>
 
 
@@ -59,26 +57,24 @@
 							<div class="col-md-6">
 								<div class="form-group">
 									<select class="form-control" name="role">
-										<option class="hidden" selected disabled>Please
-											Select Your Role</option>
-										<option value="Admin">Admin</option>
-										<option value="User">User</option>
+									<option value="${user.role}">${user.role}</option>
+									<option value="Admin">Admin</option>
+									<option value="User">User</option>
 									</select>
 								</div>
 								<div class="form-group">
 									<select class="form-control" name="question">
-										<option class="hidden" selected disabled>Please
-											select your Sequrity Question</option>
-										<option>What is your Birthdate?</option>
-										<option>What is Your old Phone Number</option>
-										<option>What is your Pet Name?</option>
+									<option value="${user.question}">${user.question}</option>
+									<option>What is your Birthdate?</option>
+									<option>What is Your old Phone Number</option>
+									<option>What is your Pet Name?</option>
 									</select>
 								</div>
 								<div class="form-group">
 									<input type="text" class="form-control"
-										placeholder="Enter Your Answer *" value="" name="answer" />
+										placeholder="Enter Your Answer *" value="${user.answer}" name="answer" />
 								</div>
-								<input type="submit" class="btnRegister" value="ADD USER" />
+								<input type="submit" class="btnRegister" value="Update Profile" />
 							</div>
 						</div>
 					</div>
