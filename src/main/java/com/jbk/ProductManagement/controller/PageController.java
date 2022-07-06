@@ -22,5 +22,17 @@ public class PageController {
 		return "addUser";
 
 	}
+	
+	@GetMapping(value = "/importUserPage")
+	public String importUserPage() {
+		return "importUser";
+
+	}
+	
+	@GetMapping(value = "/addProductFormPage")
+	public String addProductFormPage() {
+		return "addProduct_form";
+
+	}
 
 }

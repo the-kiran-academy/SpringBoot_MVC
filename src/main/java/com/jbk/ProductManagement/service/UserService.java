@@ -2,6 +2,10 @@ package com.jbk.ProductManagement.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 import com.jbk.ProductManagement.entity.User;
 
 public interface UserService {
@@ -12,4 +16,6 @@ public interface UserService {
 	public boolean deleteUser(String username);
 	public User profile(String username);
 	public boolean updateUser(User user);
+	
+	public int uploadUserSheet(CommonsMultipartFile file,HttpSession session);
 }

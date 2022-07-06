@@ -28,6 +28,9 @@ if(username==null){
     	<li class="nav-item">
         <a class="nav-link" href="addUserPage">Add User</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="importUserPage">Import User</a>
+      </li>
     	<%  
       }
       %>
@@ -37,6 +40,17 @@ if(username==null){
       <li class="nav-item">
         <a class="nav-link" href="listOfUser?msg=null">List Of User</a>
       </li>
+      
+      <%
+     role=(String)session.getAttribute("role");
+      if(role.equals("User")){
+    	%>
+    	<li class="nav-item">
+        <a class="nav-link" href="addProductFormPage">Add Product</a>
+      </li>
+    	<%  
+      }
+      %>
       
       <li class="nav-item">
         <a class="nav-link" href="#">List Of Product</a>

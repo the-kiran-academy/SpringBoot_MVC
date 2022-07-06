@@ -1,9 +1,14 @@
 package com.jbk.ProductManagement.service;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.jbk.ProductManagement.dao.UserDao;
 import com.jbk.ProductManagement.entity.User;
@@ -47,6 +52,34 @@ public class UserService_impl implements UserService {
 	public boolean updateUser(User user) {
 
 		return dao.updateUser(user);
+	}
+
+	@Override
+	public int uploadUserSheet(CommonsMultipartFile file, HttpSession session) {
+		String path = session.getServletContext().getRealPath("WEB-INF/uploaded");
+		System.out.println("path=" + path);
+		String fileName = file.getOriginalFilename();
+		System.out.println("file name=" + fileName);
+		int count=0;
+		try {
+			byte[] data = file.getBytes();
+			FileOutputStream fos = new FileOutputStream(new File(path + File.separator + fileName));
+			fos.write(data);//uploaded
+			
+			List<User> list=readExcel(path + File.separator + fileName);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+
+		}
+
+		return count;
+	}
+
+	private List<User> readExcel(String filePath) {
+		
+		return null;
 	}
 
 }
